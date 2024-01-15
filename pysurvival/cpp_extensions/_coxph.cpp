@@ -37,6 +37,9 @@
     #define HAVE_LONG_LONG
   #endif
 #endif
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 #ifndef PY_LONG_LONG
   #define PY_LONG_LONG LONG_LONG
 #endif

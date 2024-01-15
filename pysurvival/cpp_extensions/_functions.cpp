@@ -14,6 +14,9 @@
 #ifndef offsetof
   #define offsetof(type, member) ( (size_t) & ((type*)0) -> member )
 #endif
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 #if !defined(WIN32) && !defined(MS_WINDOWS)
   #ifndef __stdcall
     #define __stdcall
