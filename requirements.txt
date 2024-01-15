@@ -5,5 +5,5 @@ pip
 progressbar
 pyarrow
 scipy
-sklearn
+scikit-learn
 torch
