@@ -346,7 +346,7 @@ vector<double> KernelModel::fit(vector<double> T, vector<double> E,
 
     			// Normal kernel
     			else if(kernel == 2){
-    				kernel_matrix[i][j] = exp( -x*x/2.) / sqrt( 2* M_PI );
+    				kernel_matrix[i][j] = exp( -x*x/2.) / sqrt( 2* 3.14159265358979323846 );
     			}
 
     			// Biweight kernel 
@@ -361,7 +361,7 @@ vector<double> KernelModel::fit(vector<double> T, vector<double> E,
 
     			// Cosine kernel
     			else if(kernel == 5){
-    				kernel_matrix[i][j] = (M_PI/4.)*cos( M_PI*x/2. );
+    				kernel_matrix[i][j] = (M_PI/4.)*cos( 3.14159265358979323846*x/2. );
     			}
     		}
     	}
