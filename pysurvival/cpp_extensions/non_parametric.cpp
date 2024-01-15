@@ -361,7 +361,7 @@ vector<double> KernelModel::fit(vector<double> T, vector<double> E,
 
     			// Cosine kernel
     			else if(kernel == 5){
-    				kernel_matrix[i][j] = (M_PI/4.)*cos( 3.14159265358979323846*x/2. );
+    				kernel_matrix[i][j] = (3.14159265358979323846/4.)*cos( 3.14159265358979323846*x/2. );
     			}
     		}
     	}
