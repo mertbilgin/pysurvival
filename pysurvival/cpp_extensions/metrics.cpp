@@ -251,7 +251,7 @@ map<int, vector<double> > time_ROC(vector<double> risk, vector<double> T,
 		i = order_risk[j];
 
 		// Calculating the True Positive Rates
-		if ( (T[i] < t) && (E[i] == 1.) {
+		if ( (T[i] < t) && (E[i] == 1.) ) {
 			S_censored = fmax(censored_km.predict_survival(T[i], true), 1e-4);
 			weighted_cases[j] = 1./(N*S_censored);
 		}
