@@ -66,7 +66,7 @@ ext_modules = [
     sources = ["pysurvival/cpp_extensions/_functions.cpp",
                "pysurvival/cpp_extensions/functions.cpp" ,
                ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
   ),
 
@@ -77,7 +77,7 @@ ext_modules = [
                "pysurvival/cpp_extensions/metrics.cpp",
                "pysurvival/cpp_extensions/functions.cpp",
               ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
     ),
 
@@ -87,7 +87,7 @@ ext_modules = [
                "pysurvival/cpp_extensions/non_parametric.cpp",
                "pysurvival/cpp_extensions/functions.cpp" 
                ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
   ),
 
@@ -99,7 +99,7 @@ ext_modules = [
                 "pysurvival/cpp_extensions/survival_forest_tree.cpp",
                 "pysurvival/cpp_extensions/survival_forest.cpp", 
                 ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
   ),
 
@@ -108,7 +108,7 @@ ext_modules = [
     sources = [ "pysurvival/cpp_extensions/_coxph.cpp",
                 "pysurvival/cpp_extensions/functions.cpp" 
               ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
     include_dirs=[numpy.get_include()],
   ),
@@ -117,7 +117,7 @@ ext_modules = [
     name = "pysurvival.models._svm",
     sources = [ "pysurvival/cpp_extensions/_svm.cpp", 
               ],
-    extra_compile_args = extra_compile_args, 
+    #extra_compile_args = extra_compile_args, 
     language="c++", 
     include_dirs=[numpy.get_include()],
   ),
