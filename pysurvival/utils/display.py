@@ -560,7 +560,7 @@ def create_risk_groups(model, X, use_log = True, num_bins = 50,
             result = (colors_[group_name], indexes[group_name])            
             risk_groups[group_name] = result
 
-    return risk_groups
+    return risk, risk_groups
 
 
 
