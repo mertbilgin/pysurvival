@@ -1319,8 +1319,14 @@ size_t ForestSurvival::getTreePredictionTerminalNodeID(size_t tree_idx, size_t s
     return results;
   }
 
+  struct SurvivalPredictionResult {
+    std::vector<double> risk_scores;  // Averaged risk scores
+    std::vector<std::vector<std::vector<double>>> raw_predictions;  // Raw predictions
+    };
 
-  std::vector<double> SurvivalForestModel::predict_risk( std::vector <std::vector<double> > input_data, int num_threads){
+
+    SurvivalPredictionResult SurvivalForestModel::predict_risk(std::vector<std::vector<double>> input_data, int num_threads){
+
 
 
     std::vector<std::string> variable_names = this->variable_names;
@@ -1354,22 +1360,19 @@ size_t ForestSurvival::getTreePredictionTerminalNodeID(size_t tree_idx, size_t s
        sample_fraction_value, importance_mode_r, splitrule_r, 
        prediction_type_r, verbose, seed, num_threads, save_memory);
 
-      vector<double> results;
+      SurvivalPredictionResult result;
+      result.risk_scores.resize(predictions.size(), 0.0);
+      result.raw_predictions = predictions;  // Store the raw predictions
 
-      results.resize(predictions.size(), 0. );
-
-    for (size_t b = 0; b < this->num_trees; ++b){ //num trees
-
-      for (size_t i = 0; i < predictions.size(); ++i){ // num of samples
-    
-        for (size_t j = 0; j < predictions[0].size(); ++j){ // num of samples
-
-          results[i] += predictions[i][j][b]/this->num_trees;
+    for (size_t b = 0; b < this->num_trees; ++b) {
+        for (size_t i = 0; i < predictions.size(); ++i) {
+            for (size_t j = 0; j < predictions[0].size(); ++j) {
+                result.risk_scores[i] += predictions[i][j][b] / this->num_trees;
+            }
         }
-      }
     }
 
-    return results;
+    return result;
   }
 
 
